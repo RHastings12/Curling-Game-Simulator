@@ -1,5 +1,6 @@
 # Curling-Game-Simulator
 This is a simple 2D top-down curling game simulator.
+Made with pygame.
 
 ### Controls
 W - Increase clockwise rotation<br>
