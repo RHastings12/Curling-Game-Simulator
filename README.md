@@ -1,7 +1,8 @@
 # Curling-Game-Simulator
-This is a simple 2D top-down curling game simulator. Made with pygame.<br><br>
+This is a simple 2D top-down curling game simulator. Made with pygame.<br>
 
 ### Rules and Game Logic
+-----------------------------
 * The game lasts eight ends, with extra ends in the event of a tie.
 * Scoring is like normal curling, counting only rocks that are in the house and only the closest rocks to the pin until the colour changes. (e.g. if Red has the 1st, 2nd, and 4th closest rocks to the pin but Yellow has the 3rd closest, Red will score 2 points)
 * On game start, the ice conditions are randomized so the player(s) will not know how fast/slow or straight/curly the ice will be until a rock has been thrown.
@@ -13,6 +14,7 @@ This is a simple 2D top-down curling game simulator. Made with pygame.<br><br>
 * The rock physics are designed to mimic real life as closely as possible, so collisions should act approximately the way you would expect.
 
 ### Controls
+-----------------------------
 * W - Increase clockwise rotation<br>
 * S - Increase counterclockwise rotation<br>
 * LEFT - Aim left<br>
