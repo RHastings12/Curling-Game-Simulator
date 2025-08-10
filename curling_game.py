@@ -564,12 +564,12 @@ def main():
     # Create rocks
     for i in range(16):
         if i < 8:
-            rock_sprite = Image((rock_positions_red[i][0], rock_positions_red[i][1]), 'Project/images/red_rock.png')
+            rock_sprite = Image((rock_positions_red[i][0], rock_positions_red[i][1]), 'images/red_rock.png')
             rock = Rock([rock_positions_red[i][0], rock_positions_red[i][1], 0], rock_sprite, i, 'r')
             rocks.append(rock)
             rocks_to_go.append(rock)
         else:
-            rock_sprite = Image((rock_positions_yellow[i - 8][0], rock_positions_yellow[i - 8][1]), 'Project/images/yellow_rock.png')
+            rock_sprite = Image((rock_positions_yellow[i - 8][0], rock_positions_yellow[i - 8][1]), 'images/yellow_rock.png')
             rock = Rock([rock_positions_yellow[i - 8][0], rock_positions_yellow[i - 8][1], 0], rock_sprite, i - 8, 'y')
             rocks.append(rock)
             rocks_to_go.append(rock)
