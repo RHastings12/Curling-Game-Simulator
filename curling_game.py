@@ -1,6 +1,7 @@
 # Ryan Hastings
 
-import pygame, sys
+import os, sys
+import pygame
 import numpy as np
 import random
 import copy
@@ -500,6 +501,7 @@ class Simulation:
     def resume(self):
         self.paused = False
 
+# Rotate a vector by angle
 def rotate_vec(v, angle):
     r = np.array([[np.cos(np.deg2rad(angle)), -np.sin(np.deg2rad(angle)), 0.0],
                   [np.sin(np.deg2rad(angle)), np.cos(np.deg2rad(angle)), 0.0],
@@ -536,6 +538,7 @@ def calculate_score(house):
     
     return ''
 
+# Reset rocks after a Free Guard Zone (FGZ) rock is taken out of play
 def reset_fgz():
     for rock in rocks_in_play:
         rock.pos = rock.prev_pos
@@ -549,6 +552,14 @@ def reset_fgz():
         
         if rock in rocks_moving:
             rocks_moving.remove(rock)
+
+# Makes file paths compatible with pyinstaller 
+def resource_path(relative_path):
+    if hasattr(sys, "_MEIPASS"):
+        base_path = sys._MEIPASS
+    else:
+        base_path = os.path.abspath(".")
+    return os.path.join(base_path, relative_path)
 
 def main():
     pygame.init()
@@ -564,12 +575,12 @@ def main():
     # Create rocks
     for i in range(16):
         if i < 8:
-            rock_sprite = Image((rock_positions_red[i][0], rock_positions_red[i][1]), 'images/red_rock.png')
+            rock_sprite = Image((rock_positions_red[i][0], rock_positions_red[i][1]), resource_path('images/red_rock.png'))
             rock = Rock([rock_positions_red[i][0], rock_positions_red[i][1], 0], rock_sprite, i, 'r')
             rocks.append(rock)
             rocks_to_go.append(rock)
         else:
-            rock_sprite = Image((rock_positions_yellow[i - 8][0], rock_positions_yellow[i - 8][1]), 'images/yellow_rock.png')
+            rock_sprite = Image((rock_positions_yellow[i - 8][0], rock_positions_yellow[i - 8][1]), resource_path('images/yellow_rock.png'))
             rock = Rock([rock_positions_yellow[i - 8][0], rock_positions_yellow[i - 8][1], 0], rock_sprite, i - 8, 'y')
             rocks.append(rock)
             rocks_to_go.append(rock)
